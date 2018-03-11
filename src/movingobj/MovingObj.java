@@ -5,6 +5,8 @@
  */
 package movingobj;
 
+import javax.swing.SwingUtilities;
+
 /**
  *
  * @author bellia_2
@@ -16,6 +18,8 @@ public class MovingObj {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+         UserInterface ui = new UserInterface(new Avatar(30, 30));
+        SwingUtilities.invokeLater(ui);
     }
     
 }
