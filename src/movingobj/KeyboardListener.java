@@ -34,6 +34,8 @@ public class KeyboardListener implements KeyListener{
             avatar.move(-5, 0);
         }else if(e.getKeyCode()== KeyEvent.VK_RIGHT){
             avatar.move(5, 0);
+        }else if(e.getKeyCode()==KeyEvent.VK_DOWN){
+            avatar.move(0, 5);
         }
         component.repaint();
 

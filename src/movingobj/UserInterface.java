@@ -8,6 +8,7 @@ package movingobj;
 import java.awt.Container;
 import java.awt.Dimension;
 import javax.swing.JFrame;
+import javax.swing.Timer;
 import javax.swing.WindowConstants;
 
 /**
@@ -18,6 +19,7 @@ public class UserInterface implements Runnable {
     
     private JFrame frame;
     private Avatar avatar;
+    private Timer timer;
     
     public UserInterface(Avatar avatar){
         this.avatar=avatar;
@@ -28,12 +30,15 @@ public class UserInterface implements Runnable {
         container.add(drawingBoard);
         KeyboardListener keyListener= new KeyboardListener(avatar,drawingBoard);
         frame.addKeyListener(keyListener);
+        AutoDropListener autodrop= new AutoDropListener(avatar,drawingBoard);
+        timer= new Timer(500,autodrop);
+        timer.start();
     }
 
     @Override
     public void run() {
         frame = new JFrame("Title");
-        frame.setPreferredSize(new Dimension(200, 100));
+        frame.setPreferredSize(new Dimension(800, 800));
 
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
