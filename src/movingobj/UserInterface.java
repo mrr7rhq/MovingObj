@@ -26,6 +26,8 @@ public class UserInterface implements Runnable {
     public void createComponents(Container container){
         DrawingBoard drawingBoard = new DrawingBoard(avatar);
         container.add(drawingBoard);
+        KeyboardListener keyListener= new KeyboardListener(avatar,drawingBoard);
+        frame.addKeyListener(keyListener);
     }
 
     @Override
